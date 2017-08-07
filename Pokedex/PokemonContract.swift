@@ -13,7 +13,8 @@ protocol PokemonView: class {
     var pokemonPresenter: PokemonUserActionListener? { get set }
     
     func showLoadingScreen()
-    func showPokemonList(_ pokemon: Array<Pokemon>)
+    func hideLoadingScreen()
+    func showPokemonList(_ pokemon: [Pokemon])
     func showEmptyScreen()
     func showErrorScreen()
 }
@@ -21,11 +22,11 @@ protocol PokemonView: class {
 
 protocol PokemonUserActionListener: class {
     
-    var pokemonView: PokemonView? { get set }
+    weak var pokemonView: PokemonView? { get set }
     var pokemonInteractor: PokemonInteractorInput? { get set }
-    var pokemonWireFrame: PokemonRouter? { get set }
+    var pokemonRouter: PokemonWireFrame? { get set }
     
-    func loadView()
+    func loadPokemonList()
     func showPokemonDetail(forPokemon pokemon: Pokemon)
 }
 
@@ -41,9 +42,10 @@ protocol PokemonInteractorInput: class {
     
     var pokemonPresenter: PokemonUserActionListener? { get set }
     
-    func loadPokemonList()
+    func requestPokemonList()
 }
 
-protocol PokemonRouter: class {
+protocol PokemonWireFrame: class {
     
+    func showPokemonDetailScreen(from view: PokemonView, forPokemon pokemon: Pokemon)
 }

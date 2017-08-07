@@ -10,5 +10,7 @@ import Foundation
 
 class Pokemon {
     
+    var pokedexNumber: Int?
+    var name: String?
     
 }

@@ -19,7 +19,7 @@ class PokemonPresenter: PokemonUserActionListener, PokemonInteractorOutput {
         self.pokemonView = pokemonView
         self.pokemonInteractor = PokemonInteractor(pokemonPresenter: self)
     }
-
+    
     
     //MARK: - PokemonUserActionListener Implementation
     

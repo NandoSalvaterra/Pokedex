@@ -8,6 +8,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 def shared_pods
 
  pod 'Alamofire', '~> 4.4'
+ pod 'Gloss', '~> 1.2'
 
 end
 

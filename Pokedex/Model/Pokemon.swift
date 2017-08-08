@@ -7,10 +7,28 @@
 //
 
 import Foundation
+import Gloss
 
 class Pokemon {
     
     var pokedexNumber: Int?
     var name: String?
+    var height: Int?
+    var weight: Int?
+    var moves: [Move]?
+    var sprites: [String : String]?
+    var abilities: [Ability]?
+    var status : [Status]?
+    var baseExperience: Int?
+    var types: [Type]?
     
+    
+    init?(json: JSON) {
+        self.pokedexNumber = "id" <~~ json
+        self.name = "name" <~~ json
+        self.height = "height" <~~ json
+        self.weight = "weight" <~~ json
+        //TODO: - Refacotor Moves Model
+        self.moves = "moves.move" <~~ json
+    }
 }

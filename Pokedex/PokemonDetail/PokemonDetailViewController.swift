@@ -8,10 +8,11 @@
 
 import UIKit
 
-class PokemonDetailViewController: UIViewController {
+class PokemonDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
 }

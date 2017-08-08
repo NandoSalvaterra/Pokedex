@@ -8,11 +8,19 @@
 
 import UIKit
 
-class PokemonDetailViewController: UIViewController{
+class PokemonDetailViewController: UIViewController, PokemonDetailView {
+    var pokemonDetailPresenter: PokemonDetailUserActionListener?
+    
+  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+    }
+    
+    func showPokemonDetail(forPokemon pokemon: Pokemon) {
+        
     }
     
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol PokemonView: class {
     
     var pokemonPresenter: PokemonUserActionListener? { get set }
@@ -40,12 +41,12 @@ protocol PokemonInteractorOutput {
 
 protocol PokemonInteractorInput: class {
     
-    var pokemonPresenter: PokemonUserActionListener? { get set }
+    var pokemonPresenter: PokemonInteractorOutput { get set }
     
     func requestPokemonList()
 }
 
 protocol PokemonWireFrame: class {
     
-    func showPokemonDetailScreen(from view: PokemonView, forPokemon pokemon: Pokemon)
+    func openPokemonDetailScreen(from view: PokemonView, forPokemon pokemon: Pokemon)
 }

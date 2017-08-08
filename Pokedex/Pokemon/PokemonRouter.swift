@@ -6,15 +6,20 @@
 //  Copyright © 2017 Luiz Fernando Salvaterra. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PokemonRouter: PokemonWireFrame {
- 
+
+
     
-    
-    func presentPokemonDetailScreen(from view: PokemonView, forPokemon pokemon: Pokemon) {
+    func openPokemonDetailScreen(from view: PokemonView, forPokemon pokemon: Pokemon) {
         
-      //  let pokemonDetailViewController = PokemonDetailWireFrame.createPokemonDetailModule()
+        let pokemonDetailViewController = PokemonDetailViewController()
+    
+        
+      let pokemonViewController  = view as! UIViewController
+        
+        pokemonViewController.navigationController?.pushViewController(pokemonDetailViewController, animated: true)
         
     }
 }

@@ -9,5 +9,16 @@
 import Foundation
 
 class PokemonDetailInteractor: PokemonDetailInteractorInput {
+   
+    var pokemonDetailPresenter: PokemonDetailInteractorOutput?
+    
+    init(pokemonDetailPresenter: PokemonDetailInteractorOutput) {
+        self.pokemonDetailPresenter = pokemonDetailPresenter
+    }
+    
+    func requestPokemonDetail(id: Int) {
+    
+    }
+    
     
 }

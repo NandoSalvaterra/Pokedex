@@ -9,17 +9,17 @@
 import Foundation
 
 class PokemonInteractor: PokemonInteractorInput {
+  
     
-    var pokemonPresenter: PokemonUserActionListener?
-    
-    
-    init() {
-        
-    }
-    
-    func loadPokemonList() {
-        
-    }
+    var pokemonPresenter: PokemonInteractorOutput
 
+    init(pokemonPresenter: PokemonInteractorOutput) {
+        self.pokemonPresenter = pokemonPresenter
+    }
     
+    func requestPokemonList() {
+        PokemonAPIService.instance.requestPokemonList().responseJSON { (response) in
+            print(response)
+        }
+    }
 }

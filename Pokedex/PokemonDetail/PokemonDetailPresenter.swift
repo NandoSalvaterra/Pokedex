@@ -10,4 +10,13 @@ import Foundation
 
 class PokemonDetailPresenter:  PokemonDetailUserActionListener, PokemonDetailInteractorOutput {
     
+    var pokemonDetailView: PokemonDetailView?
+    var pokemonDetailRouter: PokemonDetailWireFrame?
+    var pokemon: Pokemon?
+    
+    func loadPokemonDetail() {
+        
+    }
+    
+    
 }

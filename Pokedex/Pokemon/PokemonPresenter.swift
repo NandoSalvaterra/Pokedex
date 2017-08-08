@@ -9,26 +9,27 @@
 import Foundation
 
 class PokemonPresenter: PokemonUserActionListener, PokemonInteractorOutput {
-    
+
     weak var pokemonView: PokemonView?
     var pokemonInteractor: PokemonInteractorInput?
     var pokemonRouter: PokemonWireFrame?
+ 
     
     init(pokemonView: PokemonView) {
         self.pokemonView = pokemonView
-        pokemonInteractor = PokemonInteractor()
+        self.pokemonInteractor = PokemonInteractor(pokemonPresenter: self)
     }
-    
+
     
     //MARK: - PokemonUserActionListener Implementation
     
-    func loadView(){
+    func loadPokemonList(){
         pokemonView?.showLoadingScreen()
-        pokemonInteractor?.loadPokemonList()
+        pokemonInteractor?.requestPokemonList()
     }
     
     func showPokemonDetail(forPokemon pokemon: Pokemon) {
-        pokemonRouter?.presentPokemonDetailScreen(from: pokemonView!, forPokemon: pokemon)
+        pokemonRouter?.openPokemonDetailScreen(from: pokemonView!, forPokemon: pokemon)
     }
     
     //MARK: - PokemonInteractorOutput Implementation

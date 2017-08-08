@@ -10,12 +10,12 @@ import UIKit
 
 class PokemonViewController: UIViewController, PokemonView {
 
-    var pokemonPresenter: PokemonUserActionListener?  
+    var pokemonPresenter: PokemonUserActionListener?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonPresenter = PokemonPresenter(pokemonView: self)
-      
+        pokemonPresenter?.loadPokemonList()
     }
     
     //MARK: - PokemonView Implementation

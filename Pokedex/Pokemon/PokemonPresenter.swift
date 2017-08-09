@@ -23,9 +23,9 @@ class PokemonPresenter: PokemonUserActionListener, PokemonInteractorOutput {
     
     //MARK: - PokemonUserActionListener Implementation
     
-    func loadPokemonList(){
+    func loadPokedex(){
         pokemonView?.showLoadingScreen()
-        pokemonInteractor?.requestPokemonList()
+        pokemonInteractor?.requestPokedex()
     }
     
     func showPokemonDetail(forPokemon pokemon: Pokemon) {

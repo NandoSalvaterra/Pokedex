@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-class Pokemon {
+class Pokemon: Decodable {
     
     var pokedexNumber: Int?
     var name: String?
@@ -23,7 +23,7 @@ class Pokemon {
     var types: [Type]?
     
     
-    init?(json: JSON) {
+   required init?(json: JSON) {
         self.pokedexNumber = "id" <~~ json
         self.name = "name" <~~ json
         self.height = "height" <~~ json

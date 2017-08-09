@@ -21,8 +21,12 @@ class PokemonAPIService: SessionManager {
         super.init()
     }
     
-    func requestPokemonList() -> DataRequest {
+    func requestPokedexList() -> DataRequest {
         let requestURL = "\(baseURL)pokemon"
         return self.request(requestURL)
    }
+    
+    func requestPokemonDetail(forUrl url: String) -> DataRequest {
+         return self.request(url)
+    }
 }

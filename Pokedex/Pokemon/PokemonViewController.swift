@@ -15,7 +15,7 @@ class PokemonViewController: UIViewController, PokemonView {
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonPresenter = PokemonPresenter(pokemonView: self)
-        pokemonPresenter?.loadPokemonList()
+        pokemonPresenter?.loadPokedex()
     }
     
     //MARK: - PokemonView Implementation

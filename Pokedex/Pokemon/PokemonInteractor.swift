@@ -9,29 +9,29 @@
 import Foundation
 
 class PokemonInteractor: PokemonInteractorInput {
-  
+    
+    var index = 0
+    
     var pokemonPresenter: PokemonInteractorOutput
-
+    
     
     init(pokemonPresenter: PokemonInteractorOutput) {
         self.pokemonPresenter = pokemonPresenter
     }
     
-    func requestPokemonList() {
-        PokemonAPIService.instance.requestPokemonList().responseJSON { (response) in
+    func requestPokedex() {
+        PokemonAPIService.instance.requestPokedexList().responseJSON { (response) in
             
             switch(response.result) {
-             
+                
             case .success:
                 
-                let teste = response.result.value as! [String: Any]
-                
-                
-                let arrayParseado = [TestClass].from(jsonArray: teste["results"] as! Array<[String: Any]>)
-         
+                if let pokedexList = PokedexList(json: response.result.value as! [String : Any]){
+                    self.getPokemonDetails(forPokedex: pokedexList)
+                }
                 break
                 
-            case .failure(let error):
+            case .failure:
                 self.pokemonPresenter.onError()
                 break
             }
@@ -42,4 +42,30 @@ class PokemonInteractor: PokemonInteractorInput {
             print(Thread.isMainThread)
         }
     }
+    
+    private func getPokemonDetails(forPokedex pokedexList: PokedexList) {
+        PokemonAPIService.instance.requestPokemonDetail(forUrl: (pokedexList.pokedexResults?[index].url)!).responseJSON(completionHandler: { (response) in
+            
+            switch(response.result) {
+                
+            case .success:
+                
+                let pokemon  = Pokemon(json: response.result.value as! [String : Any])
+                    self.index += 1
+                    print(pokemon!.name!)
+                    if(self.index < (pokedexList.pokedexResults?.count)!) {
+                        self.getPokemonDetails(forPokedex: pokedexList)
+                    }
+                    
+                    break
+                    
+                    case .failure:
+                    
+                    self.pokemonPresenter.onError()
+                    
+                    break
+                }
+            })
+        }
+        
 }

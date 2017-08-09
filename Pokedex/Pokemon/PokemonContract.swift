@@ -27,7 +27,7 @@ protocol PokemonUserActionListener: class {
     var pokemonInteractor: PokemonInteractorInput? { get set }
     var pokemonRouter: PokemonWireFrame? { get set }
     
-    func loadPokemonList()
+    func loadPokedex()
     func showPokemonDetail(forPokemon pokemon: Pokemon)
 }
 
@@ -43,7 +43,7 @@ protocol PokemonInteractorInput: class {
     
     var pokemonPresenter: PokemonInteractorOutput { get set }
     
-    func requestPokemonList()
+    func requestPokedex()
 }
 
 protocol PokemonWireFrame: class {

@@ -7,12 +7,20 @@
 //
 
 import Foundation
+import Gloss
 
-class Status {
+class Status: Gloss.Decodable {
     
     var name: String?
     var url: String?
     var baseStatus: Int?
     var effort: Int?
+    
+    required init?(json: JSON) {
+        self.name = "stat.name" <~~ json
+        self.url = "stat.url" <~~ json
+        self.baseStatus = "base_stat" <~~ json
+        self.effort = "effort" <~~ json
+    }
     
 }

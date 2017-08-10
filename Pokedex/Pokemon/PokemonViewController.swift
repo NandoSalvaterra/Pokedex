@@ -16,6 +16,9 @@ class PokemonViewController: UIViewController, PokemonView {
         super.viewDidLoad()
         pokemonPresenter = PokemonPresenter(pokemonView: self)
         pokemonPresenter?.loadPokedex()
+        self.title = "Pokedex"
+        let view = Bundle.main.loadNibNamed("EmptyScreen", owner: self, options: nil)?.first as! UIView
+        
     }
     
     //MARK: - PokemonView Implementation
@@ -28,8 +31,8 @@ class PokemonViewController: UIViewController, PokemonView {
         
     }
     
-    func showPokemonList(_ pokemon: Array<Pokemon>) {
-        
+    func showPokemonList(_ pokemon: [Pokemon]) {
+        print("caiu no controller agora so mostrar!")
     }
     
     func showEmptyScreen() {

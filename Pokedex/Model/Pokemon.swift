@@ -9,14 +9,14 @@
 import Foundation
 import Gloss
 
-class Pokemon: Decodable {
+class Pokemon: Gloss.Decodable {
     
     var pokedexNumber: Int?
     var name: String?
     var height: Int?
     var weight: Int?
     var moves: [Move]?
-    var sprites: [String : String]?
+    var sprites: Sprites?
     var abilities: [Ability]?
     var status : [Status]?
     var baseExperience: Int?
@@ -28,7 +28,11 @@ class Pokemon: Decodable {
         self.name = "name" <~~ json
         self.height = "height" <~~ json
         self.weight = "weight" <~~ json
-        //TODO: - Refacotor Moves Model
-        self.moves = "moves.move" <~~ json
+        self.moves = "moves" <~~ json
+        self.sprites = "sprites" <~~ json
+        self.abilities = "abilities" <~~ json
+        self.status = "stats" <~~ json
+        self.baseExperience = "base_experience" <~~ json
+        self.types = "types" <~~ json
     }
 }

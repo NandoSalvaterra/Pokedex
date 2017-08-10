@@ -11,7 +11,7 @@ import Foundation
 class PokemonInteractor: PokemonInteractorInput {
     
     var index = 0
-    
+    var pokemonList = [Pokemon]()
     var pokemonPresenter: PokemonInteractorOutput
     
     
@@ -25,7 +25,6 @@ class PokemonInteractor: PokemonInteractorInput {
             switch(response.result) {
                 
             case .success:
-                
                 if let pokedexList = PokedexList(json: response.result.value as! [String : Any]){
                     self.getPokemonDetails(forPokedex: pokedexList)
                 }
@@ -49,23 +48,24 @@ class PokemonInteractor: PokemonInteractorInput {
             switch(response.result) {
                 
             case .success:
-                
                 let pokemon  = Pokemon(json: response.result.value as! [String : Any])
-                    self.index += 1
-                    print(pokemon!.name!)
-                    if(self.index < (pokedexList.pokedexResults?.count)!) {
-                        self.getPokemonDetails(forPokedex: pokedexList)
-                    }
-                    
-                    break
-                    
-                    case .failure:
-                    
-                    self.pokemonPresenter.onError()
-                    
+                self.index += 1
+                self.pokemonList.append(pokemon!)
+                print(pokemon!.name!)
+                if(self.index < (pokedexList.pokedexResults?.count)!) {
+                    self.getPokemonDetails(forPokedex: pokedexList)
+                } else {
+                    self.pokemonPresenter.pokemonListDidLoad(self.pokemonList)
                     break
                 }
-            })
-        }
-        
+                
+            case .failure:
+                print ("failure")
+                self.pokemonPresenter.onError()
+                
+                break
+            }
+        })
+    }
+    
 }

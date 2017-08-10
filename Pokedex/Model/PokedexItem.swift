@@ -9,14 +9,14 @@
 import Foundation
 import Gloss
 
-class PokedexItem: Decodable {
+class PokedexItem: Gloss.Decodable {
     
     var name: String?
     var url: String?
-    
     
     required init?(json: JSON) {
         self.name = "name" <~~ json
         self.url = "url" <~~ json
     }
+    
 }

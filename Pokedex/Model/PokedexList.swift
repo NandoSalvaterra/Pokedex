@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-class PokedexList: Decodable {
+class PokedexList: Gloss.Decodable {
     
     var count: Int?
     var nextPage: String?
@@ -20,4 +20,5 @@ class PokedexList: Decodable {
         self.nextPage = "next" <~~ json
         self.pokedexResults = "results" <~~ json
     }
+    
 }

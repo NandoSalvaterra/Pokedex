@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import  Gloss
 
-class Move {
+class Move: Gloss.Decodable {
     
     var name: String?
     var url: String?
+    var levelLearned: Int?
+    
+    required init?(json: JSON) {
+        self.name = "move.name" <~~ json
+        self.url = "move.url" <~~ json
+        self.levelLearned = "level_learned_at" <~~ json
+    }
 }

@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import Gloss
 
-class Type {
+class Type: Gloss.Decodable {
     
     var name: String?
     var url: String?
     var slot: Int?
+    
+    required init?(json: JSON) {
+        self.name = "type.name" <~~ json
+        self.url = "type.url" <~~ json
+        self.slot = "slot" <~~ json
+    }
+    
 }

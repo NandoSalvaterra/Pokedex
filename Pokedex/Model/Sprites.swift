@@ -30,5 +30,4 @@ class Sprites: Gloss.Decodable {
         self.frontDefault = "front_default" <~~ json
         self.frontShiny = "front_shiny" <~~ json
     }
-    
 }

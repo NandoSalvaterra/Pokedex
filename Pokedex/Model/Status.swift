@@ -22,5 +22,4 @@ class Status: Gloss.Decodable {
         self.baseStatus = "base_stat" <~~ json
         self.effort = "effort" <~~ json
     }
-    
 }

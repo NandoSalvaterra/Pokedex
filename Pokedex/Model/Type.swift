@@ -20,5 +20,4 @@ class Type: Gloss.Decodable {
         self.url = "type.url" <~~ json
         self.slot = "slot" <~~ json
     }
-    
 }

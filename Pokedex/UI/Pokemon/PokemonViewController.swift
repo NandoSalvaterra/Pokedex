@@ -21,7 +21,7 @@ class PokemonViewController: UIViewController, PokemonView, UICollectionViewData
         pokemonPresenter = PokemonPresenter(pokemonView: self)
         pokemonPresenter?.loadPokedex()
  
-        let view = Bundle.main.loadNibNamed("EmptyScreen", owner: self, options: nil)?.first as! UIView
+        //let view = Bundle.main.loadNibNamed("EmptyScreen", owner: self, options: nil)?.first as! UIView
         
     }
     

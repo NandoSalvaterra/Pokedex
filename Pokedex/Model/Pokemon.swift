@@ -22,7 +22,6 @@ class Pokemon: Gloss.Decodable {
     var baseExperience: Int?
     var types: [Type]?
     
-    
    required init?(json: JSON) {
         self.pokedexNumber = "id" <~~ json
         self.name = "name" <~~ json

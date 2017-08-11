@@ -179,6 +179,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5B67C0C01F3E280B003C9DBC /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5B8E5BC61F3CE6F4001A4222 /* PokemonCollectionViewCell.swift */,
+				5B8E5BCC1F3DEFCD001A4222 /* PokemonCollectionViewFlowLayout.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		5B7478921F39DC8300FC0C37 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +219,7 @@
 				5BECD8AE1F38CDFB00018802 /* PokemonPresenter.swift */,
 				5BECD8B11F38CE7D00018802 /* PokemonInteractor.swift */,
 				5BECD8B41F38CE9A00018802 /* PokemonRouter.swift */,
+				5B67C0C01F3E280B003C9DBC /* CollectionView */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -234,6 +244,32 @@
 				5BC212DA1F321D76002D51B7 /* Pokedex-Developer-Info.plist */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		5B8E5BD11F3E2438001A4222 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5B8E5BC91F3DCA7A001A4222 /* UIImageView+LoadImage.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		5B8E5BD21F3E273C001A4222 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5B7478941F39DCC800FC0C37 /* Pokemon */,
+				5B7478971F39DEA300FC0C37 /* PokemonDetail */,
+				5B8E5BD31F3E2766001A4222 /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5B8E5BD31F3E2766001A4222 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B857A781F3B559A006748A5 /* EmptyScreen.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5BC2128C1F3216AF002D51B7 = {
@@ -262,17 +298,13 @@
 		5BC212971F3216AF002D51B7 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				5BC212981F3216AF002D51B7 /* AppDelegate.swift */,
 				5B7478921F39DC8300FC0C37 /* Network */,
 				5B7478931F39DCB100FC0C37 /* Model */,
-				5B7478941F39DCC800FC0C37 /* Pokemon */,
-				5B7478971F39DEA300FC0C37 /* PokemonDetail */,
+				5B8E5BD21F3E273C001A4222 /* UI */,
+				5B8E5BD11F3E2438001A4222 /* Util */,
 				5BF68F2C1F3B8E7A00FB136F /* Storyboards */,
-				5BC212981F3216AF002D51B7 /* AppDelegate.swift */,
-				5B857A781F3B559A006748A5 /* EmptyScreen.xib */,
 				5B7478981F39DED900FC0C37 /* Support Files */,
-				5B8E5BC61F3CE6F4001A4222 /* PokemonCollectionViewCell.swift */,
-				5B8E5BC91F3DCA7A001A4222 /* UIImageView+LoadImage.swift */,
-				5B8E5BCC1F3DEFCD001A4222 /* PokemonCollectionViewFlowLayout.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";

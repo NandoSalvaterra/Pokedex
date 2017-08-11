@@ -20,5 +20,4 @@ class PokedexList: Gloss.Decodable {
         self.nextPage = "next" <~~ json
         self.pokedexResults = "results" <~~ json
     }
-    
 }

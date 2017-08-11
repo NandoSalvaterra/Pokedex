@@ -22,5 +22,4 @@ class Ability: Gloss.Decodable {
         self.hidden = "hidden" <~~ json
         self.slot = "slot" <~~ json
     }
-    
 }

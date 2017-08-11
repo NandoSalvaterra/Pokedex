@@ -18,5 +18,4 @@ class PokedexItem: Gloss.Decodable {
         self.name = "name" <~~ json
         self.url = "url" <~~ json
     }
-    
 }

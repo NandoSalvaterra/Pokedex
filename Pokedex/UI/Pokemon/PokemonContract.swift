@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol PokemonView: class {
     
     var pokemonPresenter: PokemonUserActionListener? { get set }
@@ -20,7 +19,6 @@ protocol PokemonView: class {
     func showErrorScreen()
 }
 
-
 protocol PokemonUserActionListener: class {
     
     weak var pokemonView: PokemonView? { get set }
@@ -31,13 +29,11 @@ protocol PokemonUserActionListener: class {
     func showPokemonDetail(forPokemon pokemon: Pokemon)
 }
 
-
 protocol PokemonInteractorOutput {
 
     func pokemonListDidLoad(_ pokemon: [Pokemon])
     func onError()
 }
-
 
 protocol PokemonInteractorInput: class {
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 class PokemonAPIService: SessionManager {
     
@@ -28,5 +29,9 @@ class PokemonAPIService: SessionManager {
     
     func requestPokemonDetail(forUrl url: String) -> DataRequest {
          return self.request(url)
+    }
+    
+    func requestPokemonImage(forUrl url: String) -> DataRequest {
+        return self.request(url)
     }
 }

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class PokemonViewController: UIViewController, PokemonView {
+class PokemonViewController: UIViewController, PokemonView, UICollectionViewDataSource {
+ 
+    
 
     var pokemonPresenter: PokemonUserActionListener?
+    var pokemonList: [Pokemon]?
+    @IBOutlet weak var pokemonCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +35,10 @@ class PokemonViewController: UIViewController, PokemonView {
         
     }
     
+    //TODO: - Refazer assinatura do metodo
     func showPokemonList(_ pokemon: [Pokemon]) {
-        print("caiu no controller agora so mostrar!")
+       self.pokemonList = pokemon
+       pokemonCollectionView.reloadData()
     }
     
     func showEmptyScreen() {
@@ -41,6 +47,20 @@ class PokemonViewController: UIViewController, PokemonView {
     
     func showErrorScreen() {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let pokemonList = pokemonList {
+            return pokemonList.count
+        }  else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
+        cell.bind(pokemon: pokemonList![indexPath.row])
+        return cell
     }
 
 }
